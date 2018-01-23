@@ -51,6 +51,10 @@ add_executable(test_arm src/test_arm.cpp)
 add_dependencies(test_arm ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(test_arm  ${catkin_LIBRARIES} tough_controller_interface)
 
+add_executable(arm_demo src/arm_demo.cpp)
+add_dependencies(arm_demo ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(arm_demo  ${catkin_LIBRARIES} tough_controller_interface)
+
 
 add_executable(test_nudgeLocal src/test_nudgeLocal.cpp)
 add_dependencies(test_nudgeLocal ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
