@@ -64,8 +64,8 @@ void RobotWalker::footstepStatusCB(const ihmc_msgs::FootstepStatusRosMessage &ms
 bool RobotWalker::walkToGoal( geometry_msgs::Pose2D &goal, bool waitForSteps)
 {    
     ihmc_msgs::FootstepDataListRosMessage list ;
-    list.default_transfer_time = transfer_time_;
-    list.default_swing_time= swing_time_;
+    list.transfer_time = transfer_time_;
+    list.swing_time= swing_time_;
     list.execution_mode = execution_mode_;
     list.unique_id = RobotWalker::id;
 
@@ -88,8 +88,8 @@ bool RobotWalker::walkToGoal( geometry_msgs::Pose2D &goal, bool waitForSteps)
 bool RobotWalker::walkNSteps(int numSteps, float xOffset, float yOffset, bool continous, RobotSide startLeg, bool waitForSteps)
 {
     ihmc_msgs::FootstepDataListRosMessage list ;
-    list.default_transfer_time = transfer_time_;
-    list.default_swing_time = swing_time_;
+    list.transfer_time = transfer_time_;
+    list.swing_time = swing_time_;
     list.execution_mode = execution_mode_;
 
     list.unique_id = RobotWalker::id ;
@@ -120,8 +120,8 @@ bool RobotWalker::walkNSteps(int numSteps, float xOffset, float yOffset, bool co
 bool RobotWalker::walkNStepsWRTPelvis(int numSteps, float xOffset, float yOffset, bool continous, RobotSide startLeg, bool waitForSteps)
 {
     ihmc_msgs::FootstepDataListRosMessage list ;
-    list.default_transfer_time = transfer_time_;
-    list.default_swing_time = swing_time_;
+    list.transfer_time = transfer_time_;
+    list.swing_time = swing_time_;
     list.execution_mode = execution_mode_;
 
     list.unique_id = RobotWalker::id ;
@@ -152,8 +152,8 @@ bool RobotWalker::walkNStepsWRTPelvis(int numSteps, float xOffset, float yOffset
 bool RobotWalker::walkPreComputedSteps(const std::vector<float> xOffset, const std::vector<float> yOffset, RobotSide startLeg){
 
     ihmc_msgs::FootstepDataListRosMessage list;
-    list.default_transfer_time= transfer_time_;
-    list.default_swing_time = swing_time_;
+    list.transfer_time= transfer_time_;
+    list.swing_time = swing_time_;
     list.execution_mode = execution_mode_;
     list.unique_id = RobotWalker::id;
 
@@ -180,8 +180,8 @@ bool RobotWalker::walkPreComputedSteps(const std::vector<float> xOffset, const s
 bool RobotWalker::walkLocalPreComputedSteps(const std::vector<float> xOffset, const std::vector<float> yOffset, RobotSide startLeg){
 
     ihmc_msgs::FootstepDataListRosMessage list;
-    list.default_transfer_time= transfer_time_;
-    list.default_swing_time = swing_time_;
+    list.transfer_time= transfer_time_;
+    list.swing_time = swing_time_;
     list.execution_mode = execution_mode_;
     list.unique_id = RobotWalker::id;
 
@@ -669,8 +669,8 @@ ihmc_msgs::FootstepDataRosMessage::Ptr RobotWalker::getOffsetStepWRTPelvis(int s
 bool RobotWalker::turn(RobotSide side)
 {
     ihmc_msgs::FootstepDataListRosMessage list ;
-    list.default_transfer_time = transfer_time_;
-    list.default_swing_time    = swing_time_;
+    list.transfer_time = transfer_time_;
+    list.swing_time    = swing_time_;
     list.execution_mode        = execution_mode_;
     list.unique_id             = RobotWalker::id;
 
@@ -875,8 +875,8 @@ bool RobotWalker::walkRotate(float angle)
 bool RobotWalker::climbStair(const std::vector<float> xOffset, const std::vector<float> zOffset, RobotSide startLeg)
 {
     ihmc_msgs::FootstepDataListRosMessage list;
-    list.default_transfer_time= transfer_time_;
-    list.default_swing_time = swing_time_;
+    list.transfer_time= transfer_time_;
+    list.swing_time = swing_time_;
     list.execution_mode = execution_mode_;
     list.unique_id = RobotWalker::id;
 
@@ -933,12 +933,12 @@ bool RobotWalker::climbStair(const std::vector<float> xOffset, const std::vector
             waypoint.y=currentWorldLocation.y;
             waypoint.z=currentWorldLocation.z;
 
-            newFootStep->trajectory_waypoints.push_back(waypoint);
+            newFootStep->location = waypoint;
             newFootStep->trajectory_type=2; // 0 - DEFAULT, 1 - OBSTACLE CLEARANCE, 2- CUSTOM
         }
 
 
-        newFootStep->trajectory_waypoints.push_back(waypoint);
+        newFootStep->location = waypoint;
         list.footstep_data_list.push_back(*newFootStep);
     }
 
