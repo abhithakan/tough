@@ -84,22 +84,22 @@ int main(int argc, char **argv)
     left.position.z = 1.5;
     left.orientation.w = 1.0;
 
-    ArmControlInterface::armTaskSpaceData rts;
-    rts.pose = right;
-    rts.time = 2.0;
-    rts.side = RIGHT;
+//    ArmControlInterface::armTaskSpaceData rts;
+//    rts.pose = right;
+//    rts.time = 2.0;
+//    rts.side = RIGHT;
 
-    ArmControlInterface::armTaskSpaceData lts;
-    lts.pose = left;
-    lts.time = 2.0;
-    lts.side = LEFT;
+//    ArmControlInterface::armTaskSpaceData lts;
+//    lts.pose = left;
+//    lts.time = 2.0;
+//    lts.side = LEFT;
 
-    std::vector<ArmControlInterface::armTaskSpaceData> ts;
-    ts.push_back(rts);
-    ts.push_back(lts);
+//    std::vector<ArmControlInterface::armTaskSpaceData> ts;
+////    ts.push_back(rts);
+//    ts.push_back(lts);
 
 
-    armTraj.moveArmInTaskSpace(ts);
+//    armTraj.moveArmInTaskSpace(ts);
 
 
     ros::spinOnce();
