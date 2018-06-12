@@ -37,7 +37,7 @@ add_definitions(${PCL_DEFINITIONS})
 catkin_package(
    INCLUDE_DIRS include
    LIBRARIES ${PROJECT_NAME}
-   CATKIN_DEPENDS roscpp cv_bridge image_transport pcl_conversions std_msgs message_filters multisense_ros laser_assembler tough_common tough_controller_interface
+   CATKIN_DEPENDS roscpp cv_bridge image_transport pcl_conversions std_msgs message_filters multisense_ros laser_assembler tough_common
    DEPENDS opencv pcl
 )
 
